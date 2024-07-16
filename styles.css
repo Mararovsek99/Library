@@ -1,7 +1,7 @@
 *{
     margin: 0px;
     padding: 0px;
-    /* border: solid 1px red; */
+    border: solid 1px red;
 }
 @font-face{
     font-family: PlayWrite;
@@ -54,9 +54,8 @@ header button:hover{
     border-radius: 8px;
     border: none;
 }
-.main-page{
-    height: 100px;
-    font-family: poo;
+.addBookDiv{
+    height: 80px;
 }
 footer{
     position: absolute;
@@ -83,4 +82,10 @@ footer img:hover{
     max-width: var(--container-width) ;
     justify-content: space-between;
     padding: 15px;
+}
+.main-page{
+    max-width: 1200px;
+    display: grid;
+    margin: 0px auto;
+    grid-template-columns: ;
 }
