@@ -1,7 +1,7 @@
 *{
     margin: 0px;
     padding: 0px;
-    border: solid 1px red;
+    /* border: solid 1px red; */
 }
 @font-face{
     font-family: PlayWrite;
@@ -11,12 +11,16 @@
     font-family: Roboto-regular;
     src: url(fonts/Roboto-Regular.ttf);
 }
+body{
+    background-color: var(--grey);
+}
 :root {
     --button-font: Roboto-regular;
-    --button-font-size: 20px;
+    --button-font-size: 18px;
     --titlefont: PlayWrite;
     --white: #fffbfb;
     --grey: #f0eef1;
+    --button-hover:#cccccc;
     --black: #050505;
     --red: #ff7070;
     --light-green: #9fff9c;
@@ -39,17 +43,39 @@ header button{
     font-family: var(--button-font);
     font-size: var(--button-font-size);
     background-color: var(--grey);
-    padding: 10px;
+    padding: 2px 15px;
     border-radius: 8px;
+    border: none;
+    transition: 0.2s;
+}
+header button:hover{
+    background-color: var(--button-hover);
+    padding: 2px 15px;
+    border-radius: 8px;
+    border: none;
 }
 .main-page{
-    background-color: var(--grey);
     height: 100px;
     font-family: poo;
 }
 footer{
     position: absolute;
     bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    font-family: var(--button-font);
+    font-size: var(--button-font-size);
+    padding: 10px;
+    align-items: center;
+}
+footer img{
+    height: 25px;
+    margin-left: 10px;
+    transition: 0.4s;
+}
+footer img:hover{
+    transform: rotate(360deg);
 }
 .headerContainer{
     display: flex;
