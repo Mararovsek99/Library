@@ -88,3 +88,12 @@ function openDialog(){
     dialog.showModal();
     overlay.style.display = "block";
 }
+
+const submitAddBookBtn = document.querySelector("#submitAddBookBtn");
+submitAddBookBtn.addEventListener("click", function(){
+    const dialog = document.querySelector("dialog");
+    const overlay = document.querySelector("#overlay");
+    dialog.close();
+    overlay.style.display = "none";
+
+})

@@ -118,7 +118,8 @@ footer img:hover{
 .card > h1{
     font-size: calc(var(--card-font) + 5px);
 }
-.card button{
+.card button,
+form button{
     width: 90%;
     height: 50px;
     border-radius: var(--border-radius);
@@ -144,15 +145,52 @@ footer img:hover{
 #addBookBtn:hover{
     background-color: var(--button-hover);
 }
-.card .read{
+.card .read,
+form button{
     background-color: var(--light-green);
 }
 dialog{
-    width: 300px;
-    height: 400px;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    font-family: var(--button-font);
+    font-size: 12px;
+    border: none;
+    padding: 20px;
+    background-color: var(--grey);
+    border-radius: var(--border-radius);
+}
+.dialogDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.dialogDiv .doneRead{
+    display: flex;
+}
+.dialogDiv form{
+    display: flex;
+    flex-direction: column;
+}
+form{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+form button{
+    width: 100%;
+}
+form input{
+    width: 95%;
+    height: 50px;
+    margin: 12px;
+    border-radius: var(--border-radius);
+    font-size: var(--button-font-size);
+    padding-left: 15px;
+    border: none;
 }
 #overlay{
     display: none;

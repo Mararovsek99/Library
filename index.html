@@ -46,12 +46,25 @@
 
 
     <div id="overlay"></div>
+
     <dialog close>
-        <p>Greetings, one and all!</p>
+        <div class="dialogDiv">
+          <h1>Add new book</h1>
+
         <form method="dialog">
-          <button>OK</button>
-        </form>
-      </dialog>
+            
+            <input type="text" placeholder="Title">
+            <input type="text" placeholder="Author">
+            <input type="number" placeholder="Pages">
+            <div class="doneRead">
+                <p>Have you read it?</p>
+                <input type="checkbox">
+            </div>
+          <button id="submitAddBookBtn">Add book</button>
+        </form>      
+        </div>
+        
+    </dialog>
 
     <script src="script.js"></script>
 </body>
