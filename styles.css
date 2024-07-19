@@ -202,7 +202,8 @@ form input{
     margin: 7px 12px;
     border-radius: var(--border-radius);
     font-size: var(--button-font-size);
-    padding-left: 15px;
+    padding: 0px 15px;
+    
     border: none;
 }
 #overlay{
