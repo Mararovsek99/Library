@@ -148,6 +148,7 @@ form button{
 .card .read,
 form button{
     background-color: var(--light-green);
+    cursor: pointer;
 }
 dialog{
     position: absolute;
@@ -176,7 +177,6 @@ dialog{
 }
 .dialogDiv .doneRead input{
     width: 20px;
-   
 }
 .dialogDiv .doneRead p {
     font-family: var(--button-font);

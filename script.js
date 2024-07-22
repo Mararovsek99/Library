@@ -13,7 +13,7 @@ function Book(title, author, pages, read){
     this.read = read;
 }
 
-function displayEachBook(){
+function displayEachBook(){/*--------------------------------------------------------function that can display each book in array */
 
 
 
@@ -66,16 +66,9 @@ function openDialog(){
     overlay.style.display = "block";
 }
 
-const submitAddBookBtn = document.querySelector("#submitAddBookBtn");
-submitAddBookBtn.addEventListener("click", function(){
-    const dialog = document.querySelector("dialog");
-    const overlay = document.querySelector("#overlay");
-    dialog.close();
-    overlay.style.display = "none";
-
-})
-
-document.getElementById("submitAddBookBtn").addEventListener("click", function(){
+document.getElementById("submitAddBookBtn").addEventListener("click", function(){/*----------------------function for adding new book on main page from form */
+     let form = document.getElementById("addBookForm");
+    if(form.checkValidity()){
 
     let form = document.getElementById("addBookForm");
 
@@ -91,9 +84,9 @@ document.getElementById("submitAddBookBtn").addEventListener("click", function()
         title: title,
         author: author,
         pages: pages,
-        read: read ? "read" : "not read"
+        read: read ? "Read" : "Not read"
     }
-    myLibrary.push(newBook);
+    myLibrary.push(newBook);                                /*-----------------------------------adds new book in array */
 
     const container = document.querySelector(".main-page");
 
@@ -116,17 +109,43 @@ document.getElementById("submitAddBookBtn").addEventListener("click", function()
     let newRead = document.createElement("button");
         newRead.className = "read";
         newRead.textContent = newBook.read;
-    newCard.appendChild(newRead);
+            if (newRead.textContent !== "Read") { /*----------------------------------------This if make read/not read button red or green */
+                newRead.style.backgroundColor = "var(--red)";}
+            else{newRead.style.backgroundColor = "var(--light-green)";}
+        newCard.appendChild(newRead);
 
     let newDel = document.createElement("button");
     newDel.textContent = "Remove";
-newCard.appendChild(newDel);
+
+    newCard.appendChild(newDel);
+    
+        const dialog = document.querySelector("dialog");
+        const overlay = document.querySelector("#overlay");
+        dialog.close();
+        overlay.style.display = "none";
+    
+    form.reset();
+
+    }
+    else{
+        form.reportValidity();
+    }
+
+
     
 
 
-
-
-    form.reset();
-
-
 })
+
+
+document.addEventListener("click", function(event) {
+    if (event.target.classList.contains("read")) {
+        if (event.target.textContent === "Read") {
+            event.target.textContent = "Not read";
+            event.target.style.backgroundColor = "var(--red)";
+        } else {
+            event.target.textContent = "Read";
+            event.target.style.backgroundColor = "var(--light-green)";
+        }
+    }
+});
