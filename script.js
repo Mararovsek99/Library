@@ -138,14 +138,31 @@ document.getElementById("submitAddBookBtn").addEventListener("click", function()
 })
 
 
-document.addEventListener("click", function(event) {
-    if (event.target.classList.contains("read")) {
-        if (event.target.textContent === "Read") {
-            event.target.textContent = "Not read";
-            event.target.style.backgroundColor = "var(--red)";
-        } else {
-            event.target.textContent = "Read";
-            event.target.style.backgroundColor = "var(--light-green)";
+document.querySelector(".main-page").addEventListener("click", function(event) {
+    let parentCard = event.target.parentNode;/* --------------------------find parent or card element of button */
+    let titleOfButton = parentCard.querySelector("h1");/* ------------------find title of book for searching in array */
+    let h1Title = titleOfButton.textContent;
+
+    updateBook = myLibrary.find(book => book.title === h1Title); /*--------------function is from chat, because i cant find whort and clever solution for this. */
+    
+
+    if (event.target.textContent === "Read") {  /*---------------------because is just two buttons, i have if contition, to change read status or else delete the card */
+        if (event.target.classList.contains("read")) {/*-------------------------changes the text in button from read to not read */
+            if (event.target.textContent === "Read") {
+                event.target.textContent = "Not read";
+                event.target.style.backgroundColor = "var(--red)";
+                updateBook.read = "Not read";
+            } else {
+                event.target.textContent = "Read";
+                event.target.style.backgroundColor = "var(--light-green)";
+                updateBook.read = "Read";
+            }
         }
+    }
+    else{
+        parentCard.remove();/*----------------delete card in DOM */
+        
+        let bookIndex = myLibrary.findIndex(book => book.title === h1Title)/*---------delete object in array */
+        myLibrary.splice(bookIndex, 1);
     }
 });
