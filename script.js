@@ -146,7 +146,7 @@ document.querySelector(".main-page").addEventListener("click", function(event) {
     updateBook = myLibrary.find(book => book.title === h1Title); /*--------------function is from chat, because i cant find whort and clever solution for this. */
     
 
-    if (event.target.textContent === "Read") {  /*---------------------because is just two buttons, i have if contition, to change read status or else delete the card */
+    if (event.target.classList.contains("read")){  /*---------------------because is just two buttons, i have if contition, to change read status or else delete the card */
         if (event.target.classList.contains("read")) {/*-------------------------changes the text in button from read to not read */
             if (event.target.textContent === "Read") {
                 event.target.textContent = "Not read";

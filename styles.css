@@ -125,6 +125,7 @@ form button{
     border-radius: var(--border-radius);
     border: none;
     font-size: var(--card-font);
+    cursor: pointer;
 }
 .addBookDiv{
     display: flex;
