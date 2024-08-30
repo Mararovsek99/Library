@@ -4,13 +4,13 @@ const myLibrary = [];
 
 
 
-
-
-function Book(title, author, pages, read){
+class Book {
+    constructor (title, author, pages, read){
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = read;
+    this.read = read ? "Read" : "Not read";
+}
 }
 
 function displayEachBook(){/*--------------------------------------------------------function that can display each book in array */
@@ -80,44 +80,10 @@ document.getElementById("submitAddBookBtn").addEventListener("click", function()
     let read = document.getElementById("checkBoxRead").checked;
 
 
-    let newBook = {
-        title: title,
-        author: author,
-        pages: pages,
-        read: read ? "Read" : "Not read"
-    }
+    let newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);                                /*-----------------------------------adds new book in array */
 
-    const container = document.querySelector(".main-page");
-
-    let newCard = document.createElement("div");
-    newCard.className = "card";
-    container.appendChild(newCard);
-    
-    let newTitle = document.createElement("h1");
-    newTitle.textContent = newBook.title;
-    newCard.appendChild(newTitle);
-
-    let newAuthor = document.createElement("h2");
-    newAuthor.textContent = newBook.author;
-    newCard.appendChild(newAuthor);
-
-    let newPages = document.createElement("h2");
-    newPages.textContent = newBook.pages;
-    newCard.appendChild(newPages);
-
-    let newRead = document.createElement("button");
-        newRead.className = "read";
-        newRead.textContent = newBook.read;
-            if (newRead.textContent !== "Read") { /*----------------------------------------This if make read/not read button red or green */
-                newRead.style.backgroundColor = "var(--red)";}
-            else{newRead.style.backgroundColor = "var(--light-green)";}
-        newCard.appendChild(newRead);
-
-    let newDel = document.createElement("button");
-    newDel.textContent = "Remove";
-
-    newCard.appendChild(newDel);
+    displayEachBook();
     
         const dialog = document.querySelector("dialog");
         const overlay = document.querySelector("#overlay");
